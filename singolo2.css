@@ -54,8 +54,9 @@
   font-weight: 900;
 }
 
-body, main, article, div, h2, p, img {
+body, main, article, div, h2, h3, p, img {
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -71,14 +72,27 @@ h2 {
   letter-spacing: 0.2px;
 }
 
-p {
-  margin-top: 27px;
-  text-align: justify;
+h3 {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 900;
+  color: #666d89;
+}
+
+.text-main {
   font-size: 18px;
   line-height: 30px;
   font-weight: 300;
+  text-align: justify;
   color: #767e9e;
   word-spacing: -1px;
+}
+
+.text-small {
+  font-size: 12px;
+  line-height: 20px;
+  color: #767e9e;
+  word-spacing: -1px;  
 }
 
 .grid-container {
@@ -91,12 +105,71 @@ p {
 .grid-item-portfolio {
   grid-row: 1 / 2;
   grid-column: 2 / 3;
-  background-color: #2d303a;
   padding: 40px;
+  background-color: #2d303a;
 }
 
 .grid-item-portfolio > h2 {
   margin-top: 29px;  
+}
+
+.grid-item-portfolio > p {
+  margin-top: 27px;
+  margin-bottom: 11px;
+}
+
+.button-sort-container {
+  display: flex;
+  margin: 1px;
+}
+
+.button-sort-container > div {
+  height: 20px;
+  margin-right: 10px;
+  text-align: center;
+  color: #767e9e;
+  border: 1px solid #666d89;
+  border-radius: 5px;
+}
+
+.button-sort-container p {
+  color: inherit;
+}
+
+.button-sort-container > div:hover {
+  color: #dedede;
+  border-color: #c5c5c5;
+  cursor: pointer;
+}
+
+.button-sort-all {
+  width: 27px;
+}
+
+.button-sort-web {
+  width: 76px;
+}
+
+.button-sort-graphic {
+  width: 91px;
+}
+
+.button-sort-artwork {
+  width: 55px;
+}
+
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 19px;
+  max-height: 610px;
+}
+
+.gallery-container > div {
+  width: 220px;
+  height: 187px;
+  margin-bottom: 20px;
 }
 
 .grid-item-border4 {
@@ -110,12 +183,53 @@ p {
 .grid-item-about {
   grid-row: 3 / 4;
   grid-column: 2 / 3;
-  background-color: #f2f2f2;
   padding: 40px;
+  background-color: #f2f2f2;
 }
 
 .grid-item-about > h2 {
   margin-top: 28px;
+}
+
+.grid-item-about > p {
+  margin-top: 27px;
+}
+
+.us-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 45px;
+}
+
+.us-container > div {
+  width: 300px;
+}
+
+.us-container h3 {
+  margin-top: 14px;
+}
+
+.us-container p {
+  margin-top: 10px;
+  line-height: 21px;
+  text-align: justify;
+}
+
+.us-links-container {
+  display: flex;
+  margin-top: 23px;
+}
+
+.us-links-container div {
+  width: 34px;
+  height: 34px;
+  margin-right: 6px;
+  border-radius: 50%;
+}
+
+.us-links-container div:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
 .grid-item-border5 {
