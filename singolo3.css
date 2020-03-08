@@ -1,3 +1,5 @@
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+
 @font-face {
   font-family: "Lato";
   src: url(assets/fonts/Lato-Light.ttf);
@@ -54,19 +56,17 @@
   font-weight: 900;
 }
 
-body, main, article, footer, div, h2, h3, p, img {
+body, main, article, footer, div, form, input, textarea, h2, h3, p, img {
   margin: 0;
-}
-
-body {
-  font-family: "Lato";
-  text-align: left;
+  padding: 0;
 }
 
 h2 {
   font-weight: 900;
   font-size: 30px;
   line-height: 18px;
+  font-family: "Lato", sans-serif;
+  text-align: justify;
   letter-spacing: -0.01em;
 }
 
@@ -74,12 +74,16 @@ h3 {
   font-weight: 900;
   font-size: 18px;
   line-height: 18px;
+  font-family: "Lato", sans-serif;
+  text-align: justify;
 }
 
 .text-main {
   font-weight: 300;
   font-size: 18px;
   line-height: 30px;
+  font-family: "Lato", sans-serif;
+  text-align: justify;
   letter-spacing: -0.01em;
 }
 
@@ -87,18 +91,35 @@ h3 {
   font-weight: 400;
   font-size: 12px;
   line-height: 22px;
+  font-family: "Lato", sans-serif;
+  text-align: justify;
   letter-spacing: -0.01em;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .grid-container {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-rows: 648px 6px 76px;
+  -ms-grid-columns: 1fr 1020px 1fr;
   grid: 648px 6px 76px / 1fr 1020px 1fr;
 }
 
 /* Get a Qoute */
 
 .grid-item-contact {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
   grid-row: 1 / 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
   grid-column: 2 / 3;
   padding: 40px;
   color: #f0d8d9;
@@ -111,11 +132,94 @@ h3 {
 
 .grid-item-contact > .text-main {
   margin-top: 27px;
-  text-align: justify;
+  margin-bottom: 44px;
+}
+
+.form-container {
+  float: left;
+  width: 619px;
+  margin-right: 21px;
+}
+
+.form-item {
+  width: 591px;
+  margin-bottom: 16px;
+  padding: 0 14px;
+  color: #f0d8d9;
+  background-color: #d6564f;
+  border-width: 0;
+  border-radius: 5px;
+  outline-color: brown;
+}
+
+input.form-item {
+  height: 38px;
+  line-height: 38px;
+  letter-spacing: 0.01em;  
+}
+
+textarea.form-item {
+  height: 195px;
+  padding-top: 7px;
+  resize: none;
+  overflow: auto;
+  word-spacing: -0.1px;
+  letter-spacing: 0;
+}
+
+input[type="submit"] {
+  width: 120px;
+  text-align: center;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+          box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.form-item::-webkit-input-placeholder {
+  color: #f48c8f;
+}
+
+.form-item::-moz-placeholder {
+  color: #f48c8f;
+}
+
+.form-item:-ms-input-placeholder {
+  color: #f48c8f;
+}
+
+.form-item:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 50px #d6564f !important;
+  -webkit-text-fill-color: #f0d8d9 !important;
+  color: #f0d8d9 !important;
+}
+
+.grid-item-contact > p {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.contact-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact-item > p {
+  margin-left: 10px;
 }
 
 .grid-item-border6 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
   grid-row: 2 / 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
   grid-column: 2 / 3;
   background-color: #ea676b;
 }
@@ -123,11 +227,21 @@ h3 {
 /* Footer */
 
 .grid-item-footer {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
   grid-row: 3 / 4;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
   grid-column: 2 / 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-right: 39px;
   padding-left: 41px;
   color: #666d89;
@@ -135,6 +249,8 @@ h3 {
 }
 
 .links-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -142,4 +258,11 @@ h3 {
   width: 34px;
   height: 34px;
   margin-left: 6px;
+  border-radius: 50%;
+}
+
+.links-container div:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+          box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
