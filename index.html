@@ -7,22 +7,24 @@
   </head>
   
   <body>
-    <main class="grid-container">
-      <a name="anchor-home"></a>
-      <header class="grid-item-header">
-        <h1 class="logo">SINGOLO</h1>
-        <nav>
-          <div class="nav-section nav-home"><a href="#anchor-home">HOME</a></div>
-          <div class="nav-buf">&#183;</div>
-          <div class="nav-section"><a href="#anchor-services">SERVICES</a></div>
-          <div class="nav-buf">&#183;</div>
-          <div class="nav-section"><a href="#anchor-portfolio">PORTFOLIO</a></div>
-          <div class="nav-buf">&#183;</div>
-          <div class="nav-section"><a href="#anchor-about">ABOUT</a></div>
-          <div class="nav-buf">&#183;</div>
-          <div class="nav-section"><a href="#anchor-contact">CONTACT</a></div>
-        </nav>
-      </header>
+    <header class="header">
+      <h1 class="logo">SINGOLO</h1>
+      <nav id="nav">
+        <div class="nav-section"><a href="#">HOME</a></div>
+        <div class="nav-buf">&#183;</div>
+        <div class="nav-section"><a href="#services">SERVICES</a></div>
+        <div class="nav-buf">&#183;</div>
+        <div class="nav-section"><a href="#portfolio">PORTFOLIO</a></div>
+        <div class="nav-buf">&#183;</div>
+        <div class="nav-section"><a href="#about">ABOUT</a></div>
+        <div class="nav-buf">&#183;</div>
+        <div class="nav-section"><a href="#contact">CONTACT</a></div>
+      </nav>
+    </header>
+    <div class="border1"></div>
+    
+    <main id="main" class="grid-container">
+      <section class="grid-item-header"></section>
       
       <div class="grid-item-border1"></div>
       
@@ -35,8 +37,7 @@
       
       <div class="grid-item-border2"></div>
       
-      <section class="grid-item-services">
-        <a name="anchor-services"></a>
+      <section class="grid-item-services" id="services">
         <h2>Our Services</h2>
         <p class="text-main">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
         <div class="services-container">
@@ -87,8 +88,7 @@
       
       <div class="grid-item-border3"></div>
       
-      <section class="grid-item-portfolio">
-        <a name="anchor-portfolio"></a>
+      <section class="grid-item-portfolio" id="portfolio">
         <h2>Portfolio</h2>
         <p class="text-main">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
         <div class="button-sort-container">
@@ -115,8 +115,7 @@
       
       <div class="grid-item-border4"></div>
       
-      <section class="grid-item-about">
-        <a name="anchor-about"></a>
+      <section class="grid-item-about" id="about">
         <h2>About Us</h2>
         <p class="text-main">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
         <div class="us-container">
@@ -158,8 +157,7 @@
       
       <div class="grid-item-border5"></div>
       
-      <section class="grid-item-contact">
-        <a name="anchor-contact"></a>
+      <section class="grid-item-contact" id="contact">
         <h2>Get a Quote</h2>
         <p class="text-main">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
         <form class="form-container" name="contact">
@@ -199,5 +197,6 @@
         </div>
       </footer>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
