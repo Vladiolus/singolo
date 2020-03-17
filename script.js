@@ -23,10 +23,11 @@ function activate(a) {
   selectedNav.classList.add("active");
 }
 
-window.addEventListener("scroll", function() {
+//window.addEventListener("scroll", function() {
+setInterval(function() {
   if (html.scrollTop < posServices) activate(document.querySelectorAll("nav a")[0]);
   if (posServices < html.scrollTop && html.scrollTop < posPortfolio) activate(document.querySelectorAll("nav a")[1]);
   if (posPortfolio < html.scrollTop && html.scrollTop < posAbout) activate(document.querySelectorAll("nav a")[2]);
   if (posAbout < html.scrollTop && html.scrollTop < posContact) activate(document.querySelectorAll("nav a")[3]);
   if (posContact < html.scrollTop || html.scrollTop+html.clientHeight == posBottom) activate(document.querySelectorAll("nav a")[4]);
-});
+}, 1);
