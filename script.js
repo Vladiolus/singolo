@@ -61,12 +61,31 @@ slide[1] = document.querySelector(".slide2").outerHTML;
 let slide_toggle = 0;
 let slideBlocked = false;
 
+document.querySelector(".left").addEventListener("click", toLeft);
 document.querySelector(".right").addEventListener("click", toRight);
+
+function toLeft() {
+  if (slideBlocked) return;
+  slideBlocked = !slideBlocked;
+  slideContainer.style.transition = "1s";
+  slideContainer.style.transform = "translate(0%, 0)";
+  let bgColor     = (slide_toggle == 0) ? "#648bf0" : "#f06c64";
+  let borderColor = (slide_toggle == 0) ? "#5d76f6" : "#ea676b";
+  document.querySelector(".grid-item-slider").style.backgroundColor = bgColor;
+  document.querySelector(".grid-item-border2").style.backgroundColor = borderColor;
+  setTimeout(() => {
+    slideContainer.firstElementChild.remove();
+    slideContainer.insertAdjacentHTML("beforeend", slide[slide_toggle]);
+    slideContainer.style.transition = "0s";
+    slideContainer.style.transform = "translate(-100%, 0)";
+    slide_toggle = (slide_toggle == 0) ? 1 : 0;
+    slideBlocked = !slideBlocked;
+  }, 1000);
+}
 
 function toRight() {
   if (slideBlocked) return;
   slideBlocked = !slideBlocked;
-  slideContainer.style.flexDirection = "row";
   slideContainer.style.transition = "1s";
   slideContainer.style.transform = "translate(-200%, 0)";
   let bgColor     = (slide_toggle == 0) ? "#648bf0" : "#f06c64";
@@ -82,4 +101,3 @@ function toRight() {
     slideBlocked = !slideBlocked;
   }, 1000);
 }
-  //document.querySelector(".slide-container").style.transform = "translate(-100%, 0)";
