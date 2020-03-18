@@ -129,6 +129,7 @@ a {
 
 .header {
   position: fixed;
+  z-index: 50;
   left: calc(50% - 510px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -229,6 +230,45 @@ nav > div {
   grid-column: 2 / 3;
   padding: 40px;
   background-color: #f06c64;
+  transition: 1s;
+}
+
+.slide-frame {
+  width: 797px;
+  height: 517px;
+  overflow: hidden;
+}
+
+.slide-container {
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  transform: translate(-100%, 0);
+}
+
+.slide-item {
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 797px;
+  height: 517px;
+}
+
+.phone-next {
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;  
+  width: 797px;
+  height: 517px;
 }
 
 .slide {
@@ -238,32 +278,26 @@ nav > div {
 
 .slide:hover {
   cursor: pointer;
+  transform: scale(1.2);
+  transition: 0.2s;
 }
 
 .left {
   margin-left: 2px;
 }
 
-.left:hover {
-  margin-right: 5px;
-}
-
 .phone-v {
   margin-top: -2px;
-  margin-right: 10px;
+  margin-right: 37px;
 }
 
 .phone-h {
-  margin-left: 8px;
+  margin-left: 36px;
   margin-top: -2px;
 }
 
 .right {
   margin-right: -0.5px;
-}
-
-.right:hover {
-  margin-left: 5px;
 }
 
 .grid-item-border2 {
@@ -274,6 +308,7 @@ nav > div {
   -ms-grid-column-span: 1;
   grid-column: 2 / 3;
   background-color: #ea676b;
+  transition: 1s;
 }
 
 /* Services */
