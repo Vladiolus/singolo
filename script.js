@@ -1,8 +1,9 @@
 // script for Singolo
 const HTML = document.documentElement;
-let selectedNav;
 
 // Header //
+
+let selectedNav;
 
 function activate(a) {
   if (selectedNav) {
@@ -11,6 +12,21 @@ function activate(a) {
   selectedNav = a;
   selectedNav.classList.add("active");
 }
+
+function autoActivate() {
+  let elList = document.querySelectorAll("section");
+  let index;
+  for (let i = 0; i < elList.length; i++) {
+    if (elList[i].offsetTop - 96 < HTML.scrollTop && HTML.scrollTop < elList[i].offsetTop - 96 + elList[i].offsetHeight) {
+      index = i;
+    }
+  }
+  if (HTML.scrollTop + HTML.clientHeight == HTML.scrollHeight) index = elList.length - 1;
+  activate(document.querySelectorAll("#nav a")[index]);
+}
+
+document.addEventListener("DOMContentLoaded", autoActivate);
+window.addEventListener("scroll", autoActivate);
 
 // There is no need in activation on click - scroll will activate menu automatically.
 /*
@@ -23,20 +39,7 @@ document.getElementById("nav").addEventListener("click", function(event) {
 });
 */
 
-window.addEventListener("scroll", function() {
-  let elList = document.querySelectorAll("section");
-  let index;
-  for (let i = 0; i < elList.length; i++) {
-    if (elList[i].offsetTop - 96 < HTML.scrollTop && HTML.scrollTop < elList[i].offsetTop - 96 + elList[i].offsetHeight) {
-      index = i;
-    }
-  }
-  if (HTML.scrollTop + HTML.clientHeight == HTML.scrollHeight) index = elList.length - 1;
-  activate(document.querySelectorAll("#nav a")[index]);
-});
-
 // Old variant of scroll. A little bit too specific.
-
 /*
 let posServices = document.getElementById("services").offsetTop - 96;
 let posPortfolio = document.getElementById("portfolio").offsetTop - 96;
@@ -54,6 +57,7 @@ setInterval(function() {
 */
 
 // Slider //
+                        
 let slideContainer = document.querySelector(".slide-container");
 let slide = [];
 slide[0] = document.querySelector(".slide1").outerHTML;
