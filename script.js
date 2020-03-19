@@ -105,3 +105,17 @@ function toRight() {
     slideBlocked = !slideBlocked;
   }, 1000);
 }
+
+// Slider screens //
+
+document.querySelector(".slide-container").addEventListener("click", function(event) {
+  let phonePower = event.target.closest(".phone-power");
+  if (!phonePower) return;
+  let phoneScreen = phonePower.parentElement.querySelector(".blackscreen");
+  
+  if (phoneScreen.classList.contains("turnedoff")) {
+    phoneScreen.classList.remove("turnedoff")
+  } else {
+    phoneScreen.classList.add("turnedoff")
+  };
+});

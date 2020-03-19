@@ -259,16 +259,8 @@ nav > div {
   height: 517px;
 }
 
-.phone-next {
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;  
-  width: 797px;
-  height: 517px;
+.slide-item > div {
+  position: relative;
 }
 
 .slide {
@@ -286,6 +278,10 @@ nav > div {
   margin-left: 2px;
 }
 
+.right {
+  margin-right: -0.5px;
+}
+
 .phone-v {
   margin-top: -2px;
   margin-right: 37px;
@@ -296,8 +292,67 @@ nav > div {
   margin-top: -2px;
 }
 
-.right {
-  margin-right: -0.5px;
+.phone-next {
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;  
+  width: 797px;
+  height: 517px;
+}
+
+.blackscreen {
+  position: absolute;
+  background-color: #000000;
+  opacity: 0;
+}
+
+.phone-v .blackscreen {
+  top: 65px;
+  left: 14px;
+  width: 188px;
+  height: 333px;
+}
+
+.phone-h .blackscreen {
+  top: 14px;
+  left: 60px;
+  width: 333px;
+  height: 188px;
+}
+
+.turnedoff {
+  opacity: 1;
+}
+
+.phone-power {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #aaaaaa;
+  opacity: 0;
+}
+
+.phone-power:hover {
+  cursor: pointer;
+}
+
+.phone-power:active {
+  opacity: 0.2;
+}
+
+.phone-v .phone-power {
+  top: 408px;
+  left: 86px;
+}
+
+.phone-h .phone-power {
+  top: 86px;
+  left: 8px;
 }
 
 .grid-item-border2 {
