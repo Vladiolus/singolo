@@ -3,14 +3,16 @@ const HTML = document.documentElement;
 
 // Header //
 
-let selectedNav;
+let activeNav = {active: 0};
+let activeTag = {active: 0};
+let activeArt = {active: 0};
 
-function activate(a) {
-  if (selectedNav) {
-    selectedNav.classList.remove("active");
+function activate(a, activeElem) {
+  if (activeElem.active) {
+    activeElem.active.classList.remove("active");
   }
-  selectedNav = a;
-  selectedNav.classList.add("active");
+  activeElem.active = a;
+  activeElem.active.classList.add("active");
 }
 
 function autoActivate() {
@@ -22,39 +24,11 @@ function autoActivate() {
     }
   }
   if (HTML.scrollTop + HTML.clientHeight == HTML.scrollHeight) index = elList.length - 1;
-  activate(document.querySelectorAll("#nav a")[index]);
+  activate(document.querySelectorAll("#nav a")[index], activeNav);
 }
 
 document.addEventListener("DOMContentLoaded", autoActivate);
 window.addEventListener("scroll", autoActivate);
-
-// There is no need in activation on click - scroll will activate menu automatically.
-/*
-document.getElementById("nav").addEventListener("click", function(event) {
-  let a = event.target.closest("a");
-  if (!a) return;
-  if (!nav.contains(a)) return;
-  
-  activate(a);
-});
-*/
-
-// Old variant of scroll. A little bit too specific.
-/*
-let posServices = document.getElementById("services").offsetTop - 96;
-let posPortfolio = document.getElementById("portfolio").offsetTop - 96;
-let posAbout = document.getElementById("about").offsetTop - 96;
-let posContact = document.getElementById("contact").offsetTop - 96;
-let posBottom = HTML.scrollHeight;
-
-setInterval(function() {
-  if (HTML.scrollTop  < posServices)                                                      activate(document.querySelectorAll("#nav a")[0]);
-  if (posServices     < HTML.scrollTop && HTML.scrollTop < posPortfolio)                  activate(document.querySelectorAll("#nav a")[1]);
-  if (posPortfolio    < HTML.scrollTop && HTML.scrollTop < posAbout)                      activate(document.querySelectorAll("#nav a")[2]);
-  if (posAbout        < HTML.scrollTop && HTML.scrollTop < posContact)                    activate(document.querySelectorAll("#nav a")[3]);
-  if (posContact      < HTML.scrollTop || HTML.scrollTop+HTML.clientHeight == posBottom)  activate(document.querySelectorAll("#nav a")[4]);
-}, 1);
-*/
 
 // Slider //
                         
@@ -118,4 +92,40 @@ document.querySelector(".slide-container").addEventListener("click", function(ev
   } else {
     phoneScreen.classList.add("turnedoff")
   };
+});
+
+// Portfolio //
+
+function sortPortfolio(tag) {
+  let gallery = document.querySelector(".gallery-container");
+  let arts = gallery.children;
+  let first = arts[0];
+  for (let i = 0; i < arts.length; i++) {
+    if (arts[i].classList.contains(tag.slice(1))) {
+      arts[i].style.opacity = "1";
+      first.before(arts[i]);
+    } else {
+      arts[i].style.opacity = "0.1";
+    }    
+  }
+}
+
+document.querySelector(".button-sort-container").addEventListener("click", function(event) {
+  let tag = event.target.closest(".button-sort-item");
+  if (!tag) return;
+  if (!document.querySelector(".button-sort-container").contains(tag)) return;
+  
+  if (tag.classList.contains("button-sort-all")) sortPortfolio(".tag-all");
+  if (tag.classList.contains("button-sort-web")) sortPortfolio(".tag-web");
+  if (tag.classList.contains("button-sort-graphic")) sortPortfolio(".tag-graphic");
+  if (tag.classList.contains("button-sort-artwork")) sortPortfolio(".tag-artwork");
+  activate(tag, activeTag);
+});
+
+document.querySelector(".gallery-container").addEventListener("click", function(event) {
+  let art = event.target.closest(".gallery-container > div");
+  if (!art) return;
+  if (!document.querySelector(".gallery-container").contains(art)) return;
+  
+  activate(art, activeArt);
 });

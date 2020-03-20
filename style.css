@@ -451,17 +451,21 @@ nav > div {
   -ms-grid-column: 2;
   -ms-grid-column-span: 1;
   grid-column: 2 / 3;
-  padding: 40px;
+  padding: 40px 32px;
   background-color: #2d303a;
 }
 
 .grid-item-portfolio > h2 {
-  margin-top: 28px; 
+  margin-top: 28px;
+  margin-right: 8px;
+  margin-left: 8px;
   color: #666d89;
 }
 
 .grid-item-portfolio > p {
   margin-top: 27px; 
+  margin-right: 8px;
+  margin-left: 8px;
   color: #767e9e;
 }
 
@@ -469,10 +473,10 @@ nav > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 11px 1px;
+  margin: 11px 9px;
 }
 
-.button-sort-container > div {
+.button-sort-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -489,10 +493,15 @@ nav > div {
   border-radius: 5px;
 }
 
-.button-sort-container > div:hover {
+.button-sort-item:hover {
   color: #dedede;
   border-color: #c5c5c5;
   cursor: pointer;
+}
+
+.button-sort-item.active {
+  color: #dedede;
+  border-color: #c5c5c5;
 }
 
 .button-sort-all {
@@ -520,8 +529,9 @@ nav > div {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 19px;
-  max-height: 610px;
+  margin-top: 10px;
+  padding: 8px;
+  max-height: 620px;
   overflow: hidden;
 }
 
@@ -529,6 +539,10 @@ nav > div {
   width: 220px;
   height: 187px;
   margin-bottom: 20px;
+}
+
+.gallery-container > div.active {
+  outline: 5px #f06c64 solid;
 }
 
 .grid-item-border4 {
