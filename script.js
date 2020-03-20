@@ -52,8 +52,8 @@ function toLeft() {
   document.querySelector(".grid-item-slider").style.backgroundColor = bgColor;
   document.querySelector(".grid-item-border2").style.backgroundColor = borderColor;
   setTimeout(() => {
-    slideContainer.firstElementChild.remove();
-    slideContainer.insertAdjacentHTML("beforeend", slide[slide_toggle]);
+    slideContainer.lastElementChild.remove();
+    slideContainer.insertAdjacentHTML("afterbegin", slide[slide_toggle]);
     slideContainer.style.transition = "0s";
     slideContainer.style.transform = "translate(-100%, 0)";
     slide_toggle = (slide_toggle == 0) ? 1 : 0;
@@ -101,7 +101,7 @@ function sortPortfolio(tag) {
   let arts = gallery.children;
   let first = arts[0];
   for (let i = 0; i < arts.length; i++) {
-    if (arts[i].classList.contains(tag.slice(1))) {
+    if (arts[i].classList.contains(tag)) {
       arts[i].style.opacity = "1";
       first.before(arts[i]);
     } else {
@@ -115,10 +115,10 @@ document.querySelector(".button-sort-container").addEventListener("click", funct
   if (!tag) return;
   if (!document.querySelector(".button-sort-container").contains(tag)) return;
   
-  if (tag.classList.contains("button-sort-all")) sortPortfolio(".tag-all");
-  if (tag.classList.contains("button-sort-web")) sortPortfolio(".tag-web");
-  if (tag.classList.contains("button-sort-graphic")) sortPortfolio(".tag-graphic");
-  if (tag.classList.contains("button-sort-artwork")) sortPortfolio(".tag-artwork");
+  if (tag.classList.contains("button-sort-all")) sortPortfolio("tag-all");
+  if (tag.classList.contains("button-sort-web")) sortPortfolio("tag-web");
+  if (tag.classList.contains("button-sort-graphic")) sortPortfolio("tag-graphic");
+  if (tag.classList.contains("button-sort-artwork")) sortPortfolio("tag-artwork");
   activate(tag, activeTag);
 });
 
@@ -128,4 +128,47 @@ document.querySelector(".gallery-container").addEventListener("click", function(
   if (!document.querySelector(".gallery-container").contains(art)) return;
   
   activate(art, activeArt);
+});
+
+// Form //
+
+document.querySelector(".form-item[name='submit']").addEventListener("click", function(event) {
+  let name = document.querySelector(".form-item[name='name']");
+  let email = document.querySelector(".form-item[name='email']");
+  if (name.validity.valid && email.validity.valid) {
+    event.preventDefault();
+    
+    let subjectText = document.querySelector(".form-item[name='subject']").value;
+    if (!subjectText) {
+      subjectText = "No subject";
+    } else {
+      subjectText = "Subject: " + subjectText;
+    }
+    
+    let commentText = document.querySelector(".form-item[name='comment']").value;    
+    if (!commentText) {
+      commentText = "No description";
+    } else {
+      commentText = "Description: " + commentText;
+    }
+    
+    let submitted = document.getElementById("form-submitted");
+    submitted.lastElementChild.insertAdjacentHTML("beforebegin", "<p style='margin-top: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'></p>");
+    submitted.lastElementChild.insertAdjacentHTML("beforebegin", "<p style='max-height: 200px; margin-top: 10px; overflow: auto;'></p>");
+    submitted.children[1].textContent = subjectText;
+    submitted.children[2].textContent = commentText;
+    submitted.style.display = "block";
+  }
+});
+
+document.querySelector(".form-submitted-ok").addEventListener("click", function() {
+  let form = document.querySelector(".form-container");
+  for (let i = 0; i < form.length - 1; i++) {
+    form.children[i].value = "";
+  }
+  
+  let submitted = document.querySelector(".form-submitted");
+  submitted.style.display = "none";
+  submitted.children[1].remove;
+  submitted.children[2].remove;  
 });

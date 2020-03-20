@@ -190,6 +190,7 @@ nav > div {
 
 .nav-buf {
   color: #494e62;
+  user-select: none;
 }
 
 .grid-item-header {
@@ -231,6 +232,7 @@ nav > div {
   padding: 40px;
   background-color: #f06c64;
   transition: 1s;
+  user-select: none;
 }
 
 .slide-frame {
@@ -414,6 +416,7 @@ nav > div {
   margin-right: 20px;
   width: 59px;
   height: 59px;
+  user-select: none;
 }
 
 .services-text {
@@ -474,6 +477,7 @@ nav > div {
   display: -ms-flexbox;
   display: flex;
   margin: 11px 9px;
+  user-select: none;
 }
 
 .button-sort-item {
@@ -533,6 +537,7 @@ nav > div {
   padding: 8px;
   max-height: 620px;
   overflow: hidden;
+  user-select: none;
 }
 
 .gallery-container > div {
@@ -720,6 +725,32 @@ input[type="submit"]:hover {
   -webkit-box-shadow: inset 0 0 0 50px #d6564f !important;
   -webkit-text-fill-color: #f0d8d9 !important;
   color: #f0d8d9 !important;
+}
+
+.form-submitted {
+  position: fixed;
+  top: 15%;
+  left: calc(50% - 200px);
+  z-index: 100;
+  display: none;
+  width: 400px;
+  max-height: 400px;
+  padding: 20px;
+  color: #f0d8d9;
+  background-color: #d6564f;
+  border: 6px #832834 solid;
+  border-radius: 10px;
+}
+
+.form-submitted-ok {
+  margin-top: 20px;
+  text-align: center;
+  background-color: #832834;
+}
+
+.form-submitted-ok:hover {
+  cursor: pointer;
+  outline: 1px #f0d8d9 solid;
 }
 
 .grid-item-contact > p {
