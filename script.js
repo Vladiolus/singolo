@@ -48,9 +48,9 @@ function toLeft() {
   slideContainer.style.transition = "1s";
   slideContainer.style.transform = "translate(0%, 0)";
   let bgColor     = (slide_toggle == 0) ? "#648bf0" : "#f06c64";
-  let borderColor = (slide_toggle == 0) ? "#5d76f6" : "#ea676b";
+  let borderColor = (slide_toggle == 0) ? "6px solid #5d76f6" : "6px solid #ea676b";
   document.querySelector(".grid-item-slider").style.backgroundColor = bgColor;
-  document.querySelector(".grid-item-border2").style.backgroundColor = borderColor;
+  document.querySelector(".grid-item-slider").style.borderBottom = borderColor;
   setTimeout(() => {
     slideContainer.lastElementChild.remove();
     slideContainer.insertAdjacentHTML("afterbegin", slide[slide_toggle]);
@@ -67,9 +67,9 @@ function toRight() {
   slideContainer.style.transition = "1s";
   slideContainer.style.transform = "translate(-200%, 0)";
   let bgColor     = (slide_toggle == 0) ? "#648bf0" : "#f06c64";
-  let borderColor = (slide_toggle == 0) ? "#5d76f6" : "#ea676b";
+  let borderColor = (slide_toggle == 0) ? "6px solid #5d76f6" : "6px solid #ea676b";
   document.querySelector(".grid-item-slider").style.backgroundColor = bgColor;
-  document.querySelector(".grid-item-border2").style.backgroundColor = borderColor;
+  document.querySelector(".grid-item-slider").style.borderBottom = borderColor;
   setTimeout(() => {
     slideContainer.firstElementChild.remove();
     slideContainer.insertAdjacentHTML("beforeend", slide[slide_toggle]);
