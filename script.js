@@ -30,6 +30,30 @@ function autoActivate() {
 document.addEventListener("DOMContentLoaded", autoActivate);
 window.addEventListener("scroll", autoActivate);
 
+let navContainer = document.querySelector("nav");
+let iconMenu = document.querySelector(".nav-menu");
+let menu_toggle = 0;
+let menuBlocked = false;
+
+function openMenu() {
+  if (menuBlocked) return;
+  menuBlocked = !menuBlocked;  
+  iconMenu.style.transform = (menu_toggle == 0) ? "rotate(90deg)" : "rotate(0deg)";
+  navContainer.style.display = (menu_toggle == 0) ? "flex" : "none";
+  menu_toggle = (menu_toggle == 0) ? 1 : 0;
+  menuBlocked = !menuBlocked;
+}
+
+iconMenu.addEventListener("click", openMenu);
+
+window.onresize = function() {
+  console.log("change");
+  if (window.matchMedia("(min-width: 768px)").mathes) {
+    navContainer.style.display = "flex";
+  }
+}
+  
+
 // Slider //
                         
 let slideContainer = document.querySelector(".slide-container");
